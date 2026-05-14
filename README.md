@@ -1,54 +1,103 @@
-# Streeling University Library System (IMS)
+# 🔐 Streeling University Library IMS
 
-A secure, role-based Inventory Management System designed for university library operations. This system handles book circulation, procurement tracking, and administrative auditing with strictly enforced access controls.
-
-## Core Features
-
-- **Role-Based Access Control (RBAC)**: Distinct interfaces and permissions for Students, Librarians, and Administrators.
-- **Inventory Management**: Real-time tracking of book availability, categories, and stock levels.
-- **Procurement System**: Integrated tracking for ordering and receiving new stock from external vendors.
-- **Circulation Desk**: Tools for librarians to manage loan approvals, denials, and book returns.
-- **Audit Logging**: Comprehensive internal logging of all sensitive administrative actions.
-- **Security First**: 
-    - Content Security Policy (CSP) headers to prevent XSS.
-    - Rate-limiting on authentication endpoints to prevent brute-force attacks.
-    - Secure password hashing and JWT-based session management.
-
-## How to Run the Project
-
-This project consists of two parts: a Python Backend (FastAPI) and a React Frontend (Vite). You need to run **both** in separate terminals.
-
-### 1. Start the Backend
-
-1.  Open a terminal and navigate to the `backend` folder.
-2.  Activate the virtual environment:
-    ```bash
-    .\venv\Scripts\Activate
-    ```
-3.  Run the server:
-    ```bash
-    uvicorn main:app --reload
-    ```
-    *Local URL: `http://127.0.0.1:8000`*
-
-### 2. Start the Frontend
-
-1.  Open a **second** terminal and navigate to the `frontend` folder.
-2.  Run the development server:
-    ```bash
-    npm run dev
-    ```
-3.  Open the app in your browser (usually `http://localhost:5173`).
+A secure, role-based Inventory Management System (IMS) developed for a university library environment using a security-by-design approach. The system supports inventory tracking, loan management, procurement workflows, and administrative auditing while enforcing strong authentication and access control mechanisms.
 
 ---
 
-## Default Test Credentials
+# 📄 Overview
 
-Role        | Username                         | Password
-------------|----------------------------------|----------
-Admin       | admin@streeling.ac.uk            | admin123
-Librarian   | librarian1@streeling.ac.uk       | librarian1
-Librarian   | librarian2@streeling.ac.uk       | librarian2
-Student     | student1@streeling.ac.uk         | student1
-Student     | student2@streeling.ac.uk         | student2
-Student     | student3@streeling.ac.uk         | student3
+The application was designed to demonstrate practical secure software engineering concepts integrated throughout the software development lifecycle (SDLC).
+
+The system supports three user roles:
+
+* **Students** — browse inventory, reserve and renew books
+* **Librarians** — manage reservations, loans, and returns
+* **Administrators** — manage users, suppliers, inventory, and audit activity
+
+---
+
+# 🏗️ Architecture
+
+The IMS follows a layered architecture:
+
+* **Frontend:** React + Vite + Tailwind CSS
+* **Backend:** FastAPI + SQLAlchemy
+* **Database:** SQLite
+
+---
+
+# 🛡️ Security Features
+
+* Role-Based Access Control (RBAC)
+* JWT authentication and session expiry
+* bcrypt password hashing
+* Rate limiting on login endpoints
+* Pydantic schema validation
+* Audit logging
+* Security headers and Content Security Policy (CSP)
+* ORM-based database queries to reduce SQL injection risk
+
+---
+
+# ⚙️ Core Features
+
+* Inventory and stock management
+* Book reservation and loan workflows
+* Procurement and supplier management
+* Audit log monitoring
+* Role-based dashboards and permissions
+
+---
+
+# 🚀 Running the Project
+
+The project requires both the backend and frontend to run simultaneously.
+
+## Backend
+
+```bash
+cd backend
+.\venv\Scripts\Activate
+uvicorn main:app --reload
+```
+
+Backend URL:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend URL:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# 🔑 Default Test Accounts
+
+| Role      | Username                                                        | Password   |
+| --------- | --------------------------------------------------------------- | ---------- |
+| Admin     | [admin@streeling.ac.uk](mailto:admin@streeling.ac.uk)           | admin123   |
+| Librarian | [librarian1@streeling.ac.uk](mailto:librarian1@streeling.ac.uk) | librarian1 |
+| Librarian | [librarian2@streeling.ac.uk](mailto:librarian2@streeling.ac.uk) | librarian2 |
+| Student   | [student1@streeling.ac.uk](mailto:student1@streeling.ac.uk)     | student1   |
+| Student   | [student2@streeling.ac.uk](mailto:student2@streeling.ac.uk)     | student2   |
+| Student   | [student3@streeling.ac.uk](mailto:student3@streeling.ac.uk)     | student3   |
+
+---
+
+# 📌 Notes
+
+This repository was developed as part of a secure software engineering project and later extended to support DevSecOps security testing and CI/CD automation workflows.
